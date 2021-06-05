@@ -4,3 +4,4 @@ class Contacto:
         self.apellido = apellido
         self.numero= numero
         self.siguiente = None
+        self.anterior = None
