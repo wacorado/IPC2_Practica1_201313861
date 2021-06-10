@@ -41,24 +41,24 @@ class ListaContactos:
          
         nuevo = Contacto(nombre,apellido,numero)
  
-        # If the list is empty
+        # Verificamos si la Lista esta Vacia
         if self.primero is None:
             self.primero = nuevo
-         
         # If the node is to be inserted at 
         # the beginning of the doubly linked list
+        elif(self.primero.numero==nuevo.numero):
+                print("\n########-------Contacto ya Registrado----------------###########\n")
         
-        elif self.primero.apellido > nuevo.apellido:
+        elif self.primero.apellido.upper()> nuevo.apellido.upper():
             nuevo.siguiente = self.primero
             nuevo.siguiente.anterior = nuevo
             self.primero = nuevo
         else:
             auxiliar = self.primero
- 
             # Locate the node after which
             # the new node  is to be inserted
             while ((auxiliar.siguiente is not None) and
-                   (auxiliar.siguiente.apellido < nuevo.apellido)):
+                   (auxiliar.siguiente.apellido.upper() < nuevo.apellido.upper())):
                 auxiliar = auxiliar.siguiente
      
             # Make the appropriate links
