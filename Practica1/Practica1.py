@@ -27,6 +27,8 @@ def buscarContacto():
         elif(opcion.upper()=="NO"):
             menu()
 
+def generarGrafica():
+    Agenda.generarGrafico()
 
 ciclo=True
 while(ciclo):
@@ -41,6 +43,7 @@ while(ciclo):
         input("")
     elif numero == "3":
         print("Opcion3")
+        generarGrafica()
         input("")
     elif numero == "4":
         #salir()

@@ -1,5 +1,12 @@
 from NodoContacto import Contacto
+import os
 
+def crearNodo(identificador,nombre, shape):
+    return identificador + "[label=\""+ nombre + "\",shape="+ shape + "]\n"
+
+def unionNodo(nodoA,nodoB):
+    return nodoA + "->" + nodoB +"\n"
+    
 class ListaContactos:
     def __init__(self):
         self.primero = None
@@ -100,3 +107,20 @@ class ListaContactos:
             print("-------------------------- Contacto No Registrado ------------------------")
             return False
         return True
+    def generarGrafico(self):
+        contador=0
+        file = open("grafo.dot","w")
+        file.write("digraph G{\n")
+        temporal = self.primero
+        while temporal != None:
+                file.write(crearNodo(str(contador),"Nombre Contacto: " + temporal.nombre+"\nApellido: "+ temporal.apellido+"\n Numero Telefonico: "+temporal.numero, "box"))
+                print("Nombre Contacto: " + temporal.nombre+"\nApellido: "+ temporal.apellido+"\n Numero Telefonico: "+temporal.numero)
+                contador=contador+1
+                temporal = temporal.siguiente
+                print("-----------------------------------------------------------------------------------------------\n")
+        for i in range(contador):
+            file.write(unionNodo(str(i),str(i+1)))
+            file.write(unionNodo(str(i+1),str(i)))
+        file.write("}")
+        file.close()
+        os.system('dot -Tpng grafo.dot -o grafo.png')
