@@ -1,0 +1,57 @@
+for i in range(apellidolen):
+            if str(apellido[i]).lower=="a":
+                contadorApellido=contadorApellido+1
+            elif str(apellido[i]).lower=="b":
+                contadorApellido=contadorApellido+2
+            elif str(apellido[i]).lower=="c":
+                contadorApellido=contadorApellido+3
+            elif str(apellido[i]).lower=="d":
+                contadorApellido=contadorApellido+4
+            elif str(apellido[i]).lower=="e":
+                contadorApellido=contadorApellido+5
+            elif str(apellido[i]).lower=="f":
+                contadorApellido=contadorApellido+6
+            elif str(apellido[i]).lower=="g":
+                contadorApellido=contadorApellido+7
+            elif str(apellido[i]).lower=="h":
+                contadorApellido=contadorApellido+8
+            elif str(apellido[i]).lower=="i":
+                contadorApellido=contadorApellido+9
+            elif str(apellido[i]).lower=="j":
+                contadorApellido=contadorApellido+10
+            elif str(apellido[i]).lower=="k":
+                contadorApellido=contadorApellido+11
+            elif str(apellido[i]).lower=="l":
+                contadorApellido=contadorApellido+12
+            elif str(apellido[i]).lower=="m":
+                contadorApellido=contadorApellido+13
+            elif str(apellido[i]).lower=="n":
+                contadorApellido=contadorApellido+14
+            elif str(apellido[i]).lower=="o":
+                contadorApellido=contadorApellido+15
+            elif str(apellido[i]).lower=="p":
+                contadorApellido=contadorApellido+16
+            elif str(apellido[i]).lower=="q":
+                contadorApellido=contadorApellido+17
+            elif str(apellido[i]).lower=="r":
+                contadorApellido=contadorApellido+18
+            elif str(apellido[i]).lower=="s":
+                contadorApellido=contadorApellido+19
+            elif str(apellido[i]).lower=="t":
+                contadorApellido=contadorApellido+20
+            elif str(apellido[i]).lower=="u":
+                contadorApellido=contadorApellido+21
+            elif str(apellido[i]).lower=="v":
+                contadorApellido=contadorApellido+22
+            elif str(apellido[i]).lower=="w":
+                contadorApellido=contadorApellido+23
+            elif str(apellido[i]).lower=="x":
+                contadorApellido=contadorApellido+24
+            elif str(apellido[i]).lower=="y":
+                contadorApellido=contadorApellido+25
+            elif str(apellido[i]).lower=="z":
+                contadorApellido=contadorApellido+26
+            else:
+                print("caracter no valido")
+            
+            

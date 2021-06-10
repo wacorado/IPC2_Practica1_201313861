@@ -14,8 +14,10 @@ def agregarContacto():
     nombreC=input("Ingrese el Nombre del Contacto:\n")
     apellidoC=input("Ingrse el Apellido del Contacto: \n")
     numeroC=input("Ingrese el numero del Contacto: \n")
-    Agenda.AgregarAlFinal(nombreC,apellidoC,numeroC)
+    print()
+    Agenda.ingresoOrdenado(nombreC,apellidoC,numeroC)
     Agenda.imprimirAgenda()
+
 
 
 ciclo=True

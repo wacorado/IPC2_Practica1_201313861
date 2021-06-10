@@ -4,17 +4,20 @@ class ListaContactos:
     def __init__(self):
         self.primero = None
         #self.ultimo = None
-    
-    def AgregarAlFinal(self, nombre, apellido, numero):
+
+    def AgregarAlFinalOrdenado(self, nombre, apellido, numero):
         nuevo = Contacto(nombre, apellido, numero)
         if self.primero is None:
             self.primero = nuevo
         else:
             tmp = self.primero
-            while tmp.siguiente is not None:
-                tmp = tmp.siguiente
-            tmp.siguiente = nuevo
-            nuevo.anterior = tmp
+            if(tmp.numero==nuevo.numero):
+                print("\n########-------Contacto ya Registrado----------------###########\n")
+            else:
+                while tmp.siguiente is not None:
+                    tmp = tmp.siguiente
+                tmp.siguiente = nuevo
+                nuevo.anterior = tmp
     
     def AgregarAlInicio(self, nombre, apellido, numero):
         if self.primero is None:
@@ -27,14 +30,6 @@ class ListaContactos:
         self.primero.siguiente = nuevo
         self.primero = nuevo
 
-    
-    def mostrarLista(self):
-        temporal = self.primero
-        while temporal is not None:
-            print("Nombre: "+ temporal.nombre+" \nApellido: "+temporal.apellido+" \nNumero: "+temporal.Numero)
-            print("\n")
-            temporal = temporal.siguiente
-
     def imprimirAgenda(self):
         temporal = self.primero
         while temporal != None:
@@ -42,24 +37,37 @@ class ListaContactos:
                 temporal = temporal.siguiente
                 print("-----------------------------------------------------------------------------------------------\n")
 
-		## printing the data in normal order
-		#print("Normal Order: ", end='')
-	    #temporal = self.head
-		#while temporal != None:
-			#print(temp_node.data, end=' ')
-			#temp_node = temp_node.next
-		#print()
-
-		## printing the data in reverse order using previous pointer
-		#print("Reverse Order: ", end='')
-
-		## getting the last node
-		#last_node = self.head
-		#while last_node.next != None:
-			#last_node = last_node.next
-
-		#temp_node = last_node
-		#while temp_node != None:
-			#print(temp_node.data, end=' ')
-			#temp_node = temp_node.prev
-		#print() 
+    def ingresoOrdenado(self, nombre, apellido, numero):
+         
+        nuevo = Contacto(nombre,apellido,numero)
+ 
+        # If the list is empty
+        if self.primero is None:
+            self.primero = nuevo
+         
+        # If the node is to be inserted at 
+        # the beginning of the doubly linked list
+        
+        elif self.primero.apellido > nuevo.apellido:
+            nuevo.siguiente = self.primero
+            nuevo.siguiente.anterior = nuevo
+            self.primero = nuevo
+        else:
+            auxiliar = self.primero
+ 
+            # Locate the node after which
+            # the new node  is to be inserted
+            while ((auxiliar.siguiente is not None) and
+                   (auxiliar.siguiente.apellido < nuevo.apellido)):
+                auxiliar = auxiliar.siguiente
+     
+            # Make the appropriate links
+            nuevo.siguiente = auxiliar.siguiente
+ 
+            # If the new node is not inserted
+            # at the end of the list
+            if auxiliar.siguiente is not None:
+                nuevo.siguiente.anterior = nuevo
+ 
+            auxiliar.siguiente = nuevo
+            nuevo.anterior = auxiliar
