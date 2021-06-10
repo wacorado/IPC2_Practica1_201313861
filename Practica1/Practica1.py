@@ -18,6 +18,14 @@ def agregarContacto():
     Agenda.ingresoOrdenado(nombreC,apellidoC,numeroC)
     Agenda.imprimirAgenda()
 
+def buscarContacto():
+    numero = input("Ingrese el Numero a Buscar: \n")
+    if(Agenda.Buscar(numero) != True):
+        opcion=input("Desea Registrar Contacto: Si/No \n")
+        if(opcion.upper()=="SI"):
+            agregarContacto()
+        elif(opcion.upper()=="NO"):
+            menu()
 
 
 ciclo=True
@@ -29,6 +37,7 @@ while(ciclo):
         input("")
     elif numero == "2":
         print("Opcion2")
+        buscarContacto()
         input("")
     elif numero == "3":
         print("Opcion3")
