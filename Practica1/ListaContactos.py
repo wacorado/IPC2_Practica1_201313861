@@ -11,32 +11,6 @@ class ListaContactos:
     def __init__(self):
         self.primero = None
         #self.ultimo = None
-
-    def AgregarAlFinalOrdenado(self, nombre, apellido, numero):
-        nuevo = Contacto(nombre, apellido, numero)
-        if self.primero is None:
-            self.primero = nuevo
-        else:
-            tmp = self.primero
-            if(tmp.numero==nuevo.numero):
-                print("\n########-------Contacto ya Registrado----------------###########\n")
-            else:
-                while tmp.siguiente is not None:
-                    tmp = tmp.siguiente
-                tmp.siguiente = nuevo
-                nuevo.anterior = tmp
-    
-    def AgregarAlInicio(self, nombre, apellido, numero):
-        if self.primero is None:
-            nuevo = Contacto(nombre, apellido, numero)
-            self.primero = nuevo
-            print("Contacto Ingresado al Inicio")
-            return
-        nuevo = Contacto(nombre, apellido, numero)
-        nuevo.anterior = self.primero
-        self.primero.siguiente = nuevo
-        self.primero = nuevo
-
     def imprimirAgenda(self):
         temporal = self.primero
         while temporal != None:
@@ -107,6 +81,7 @@ class ListaContactos:
             print("-------------------------- Contacto No Registrado ------------------------")
             return False
         return True
+    
     def generarGrafico(self):
         contador=0
         file = open("grafo.dot","w")
